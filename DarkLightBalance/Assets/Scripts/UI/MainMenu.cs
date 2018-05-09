@@ -5,6 +5,8 @@ namespace Logic
 {
     public class MainMenu : MonoBehaviour
     {
+        private GameManager gameGM;
+
 
         public void PlayGame()
         {

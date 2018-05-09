@@ -11,11 +11,13 @@ namespace Logic
         {
             SetGameManager();
             gameGM.GoToMenuSceneEvent += GoToMain;
+          
         }
 
         private void OnDisable()
         {
             gameGM.GoToMenuSceneEvent -= GoToMain;
+            
         }
 
         public void GoToMain()

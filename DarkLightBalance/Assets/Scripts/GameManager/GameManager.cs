@@ -10,6 +10,7 @@ namespace Logic
         public event GameManagerEventHandler RestartLevelEvent;
         public event GameManagerEventHandler GoToMenuSceneEvent;
         public event GameManagerEventHandler GameOverEvent;
+     
 
         [SerializeField]
         public bool isGameOver;

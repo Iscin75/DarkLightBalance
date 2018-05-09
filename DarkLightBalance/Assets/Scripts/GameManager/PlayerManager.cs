@@ -14,8 +14,8 @@ namespace Logic
         {
             SetGameManager();
             gameGM.MenuToggleEvent += TogglePlayerController;
+            
         }
-
 
         private void OnDisable()
         {
@@ -26,7 +26,6 @@ namespace Logic
         {
             if(playerController != null)
             {
-
                 playerController.enabled = !gameGM.isMenuOn;
             }
             else

@@ -25,12 +25,16 @@ namespace Logic
         {
             SetGameManager();
             gameGM.GameOverEvent += ToggleMenu;
+            gameGM.RestartLevelEvent += ToggleMenu;
+            
 
         }
 
         private void OnDisable()
         {
             gameGM.GameOverEvent -= ToggleMenu;
+            gameGM.RestartLevelEvent -= ToggleMenu;
+           
         }
 
         void CheckMenuToggleRequest()

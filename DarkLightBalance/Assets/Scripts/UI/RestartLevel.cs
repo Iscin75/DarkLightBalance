@@ -12,16 +12,20 @@ namespace Logic
         {
             SetGameManager();
             gameGM.RestartLevelEvent += Restart;
+
         }
 
         private void OnDisable()
         {
             gameGM.RestartLevelEvent -= Restart;
+          
         }
 
         void Restart()
         {
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
         }
 
         void SetGameManager()
