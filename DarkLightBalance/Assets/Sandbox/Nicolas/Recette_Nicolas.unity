@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -59,7 +59,7 @@ LightmapSettings:
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
-    m_AO: 0
+    m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
@@ -633,7 +633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c6dae43b0fd68449562344dfa8b38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: Player
 --- !u!114 &934861369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,7 +1323,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1980813499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 234.21909, y: 0.65, z: 237.99}
+  m_LocalPosition: {x: 234.21909, y: 0.52, z: 237.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

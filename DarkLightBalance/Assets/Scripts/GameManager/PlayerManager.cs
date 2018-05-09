@@ -26,7 +26,8 @@ namespace Logic
         {
             if(playerController != null)
             {
-                playerController.enabled = !playerController.enabled;
+
+                playerController.enabled = !gameGM.isMenuOn;
             }
             else
             {

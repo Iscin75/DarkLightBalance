@@ -16,10 +16,10 @@ namespace Logic
             CheckMenuToggleRequest();
         }
 
-        private void Start()
+        /**private void Start()
         {
             ToggleMenu();
-        }
+        }**/
 
         private void OnEnable()
         {
