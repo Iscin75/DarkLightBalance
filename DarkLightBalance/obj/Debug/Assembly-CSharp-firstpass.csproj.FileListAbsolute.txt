@@ -179,4 +179,3 @@ E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\obj\Debug\Assembly-
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\obj\Debug\Assembly-CSharp-firstpass.csproj.CopyComplete
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\obj\Debug\Assembly-CSharp-firstpass.dll
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\obj\Debug\Assembly-CSharp-firstpass.pdb
-E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\ICSharpCode.NRefactory.dll

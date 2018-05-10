@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Sandbox/Menu_Nicolas.unity
-    guid: fe488897393e79e4ba60465abcd1bd15
+    path: Assets/Sandbox/Nicolas/Logic&UI.unity
+    guid: 85a834421a06c2c4aa2debf3daeaee26
   - enabled: 1
-    path: Assets/Sandbox/Recette_Nicolas.unity
-    guid: 52385e644ac29d743849a41498552945
+    path: Assets/Sandbox/Nicolas/Level 1.unity
+    guid: 907b540bd3a6d2149973dac9b07af31f
+  - enabled: 1
+    path: Assets/Sandbox/Nicolas/Level 2.unity
+    guid: bcf920acbb048cf4da8a452663398f03
   m_configObjects: {}

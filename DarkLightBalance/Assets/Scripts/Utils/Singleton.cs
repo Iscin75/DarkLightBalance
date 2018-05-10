@@ -1,34 +1,24 @@
-﻿#region Imports
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-#endregion
 
-/// <summary>
-/// Singleton permettant de gérer l'instanciation ou la destruction UNIQUE d'une classe
-/// </summary>
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-
-    #region Variables
     private static T _instance;
 
     private static object _lock = new object();
 
-    private static bool applicationIsQuitting = false;
-    #endregion
-
-    #region Propriétés
     public static T Instance
     {
         get
         {
             if (applicationIsQuitting)
             {
-                Debug.LogWarning("[Singleton] L'instance '" + typeof(T) +
-                    "' à déjà été détruire à la fermeture de l'appli.");
-               
+                Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
+                    "' already destroyed on application quit." +
+                    " Won't create again - returning null.");
                 return null;
             }
-
 
             lock (_lock)
             {
@@ -38,7 +28,9 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
                     if (FindObjectsOfType(typeof(T)).Length > 1)
                     {
-                        Debug.LogError("[Singleton] Impossible d'instancier plus d'un singleton.");
+                        Debug.LogError("[Singleton] Something went really wrong " +
+                            " - there should never be more than 1 singleton!" +
+                            " Reopening the scene might fix it.");
                         return _instance;
                     }
 
@@ -50,13 +42,13 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
                         DontDestroyOnLoad(singleton);
 
-                        Debug.Log("[Singleton] Une instance du singleton " + typeof(T) +
-                            " a été demandé '" + singleton +
-                            "' à été créé au chargement.");
+                        Debug.Log("[Singleton] An instance of " + typeof(T) +
+                            " is needed in the scene, so '" + singleton +
+                            "' was created with DontDestroyOnLoad.");
                     }
                     else
                     {
-                        Debug.Log("[Singleton] Utilisation d'une instance déjà créée: " +
+                        Debug.Log("[Singleton] Using instance already created: " +
                             _instance.gameObject.name);
                     }
                 }
@@ -65,12 +57,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             }
         }
     }
-    #endregion
 
-
-    /// <summary>
-    /// Récupération de l'état de l'application lors de la fermeture
-    /// </summary>
+    private static bool applicationIsQuitting = false;
     public void OnDestroy()
     {
         applicationIsQuitting = true;

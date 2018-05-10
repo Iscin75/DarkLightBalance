@@ -130,7 +130,6 @@ E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\Boo.
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\Boo.Lang.Useful.dll
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\Unity.CecilTools.dll
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\Unity.Cecil.Pdb.dll
-E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\UnityEngine.xml
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\UnityEditor.xml
 E:\Users\ESIEE 17-18\Unity\DarkLightBalance\DarkLightBalance\Temp\bin\Debug\UnityEngine.AIModule.xml
