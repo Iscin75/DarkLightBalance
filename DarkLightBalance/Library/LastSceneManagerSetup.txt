@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Sandbox/Nicolas/Logic&UI.unity
-  isLoaded: 1
-  isActive: 1
