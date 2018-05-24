@@ -6,6 +6,19 @@ TagManager:
   tags:
   - posDebut
   - endTrigger
+  - Exit
+  - PowerFloor
+  - LanternForWall
+  - Light_DisappearOnShadowContact
+  - Light_isActivatedOnShadowContact
+  - Light_isSeenOnLightContact
+  - Shadow_DisappearOnLightContact
+  - Shadow_isActivatedOnLightContact
+  - Shadow_isSeenOnShadowContact
+  - Light_NeedsSequenceOfLightContact
+  - Shadow_NeedsSequenceOfShadowContact
+  - Light_isActivatedOnLightContact
+  - Shadow_isActivatedOnShadowContact
   layers:
   - Default
   - TransparentFX
