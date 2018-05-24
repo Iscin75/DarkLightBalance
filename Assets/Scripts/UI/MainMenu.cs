@@ -10,17 +10,13 @@ public class MainMenu : MonoBehaviour {
 
     private void OnEnable()
     {
-        GameManager.Instance.StartGameEvent += StartGame;
+        GameManager.Instance.StartGameEvent += ToggleMenuPrincipal;
+        GameManager.Instance.MainMenuEvent += ToggleMenuPrincipal;
     }
 
-    private void OnDisable()
+    void ToggleMenuPrincipal()
     {
-        GameManager.Instance.StartGameEvent -= StartGame;
-    }
-
-    void StartGame()
-    {
-        m_mainMenuPanel.SetActive(false);
+        m_mainMenuPanel.SetActive(!m_mainMenuPanel.activeSelf);
     }
 
     public void OnClickStartGame()
@@ -32,4 +28,6 @@ public class MainMenu : MonoBehaviour {
     {
         Application.Quit();
     }
+
+
 }

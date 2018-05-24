@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isActive)
             {
@@ -29,16 +29,17 @@ public class PauseMenu : MonoBehaviour {
     {
         GameManager.Instance.PauseMenuEvent += ToggleMenuPause;
         GameManager.Instance.ContinueLevelEvent += ToggleMenuPause;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.Instance.PauseMenuEvent -= ToggleMenuPause;
-        GameManager.Instance.ContinueLevelEvent -= ToggleMenuPause;
+        GameManager.Instance.MainMenuEvent += ToggleMenuPause;
     }
 
     void ToggleMenuPause()
     {
         m_PauseMenuPanel.SetActive(!m_PauseMenuPanel.activeSelf);
+    }
+
+    public void OnClickMenuPrincipal()
+    {
+        isActive = false;
+        GameManager.Instance.CallMainMenuEvent();
     }
 }

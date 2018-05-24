@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour {
 
+    private void Awake()
+    {
+        StopTime();
+    }
 
     private void OnEnable()
     {
         GameManager.Instance.PauseMenuEvent += StopTime;
         GameManager.Instance.ContinueLevelEvent += StartTime;
+        GameManager.Instance.StartGameEvent += StartTime;
     }
 
-    private void OnDisable()
-    {
-        GameManager.Instance.PauseMenuEvent -= StopTime;
-        GameManager.Instance.ContinueLevelEvent -= StartTime;
-    }
 
     void StopTime()
     {

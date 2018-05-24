@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager> {
     public event GameEventHandler StartGameEvent;
     public event GameEventHandler PauseMenuEvent;
     public event GameEventHandler ContinueLevelEvent;
+    public event GameEventHandler MainMenuEvent;
     
 
     public void CallStartGame()
@@ -28,6 +29,13 @@ public class GameManager : Singleton<GameManager> {
         if (ContinueLevelEvent != null)
             ContinueLevelEvent();
     }
-   
+
+    public void CallMainMenuEvent()
+    {
+        if (StartGameEvent != null)
+            MainMenuEvent();
+
+    }
+
 
 }

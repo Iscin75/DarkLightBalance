@@ -10,12 +10,9 @@ public class LevelManager : MonoBehaviour {
     private void OnEnable()
     {
         GameManager.Instance.StartGameEvent += LoadNextLevel;
+        GameManager.Instance.MainMenuEvent += UnloadLastLevel;
     }
 
-    private void OnDisable()
-    {
-        GameManager.Instance.StartGameEvent -= LoadNextLevel;
-    }
 
     void LoadNextLevel()
     {
@@ -23,6 +20,11 @@ public class LevelManager : MonoBehaviour {
          currentLevel++;
          SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
         
-  
+    }
+
+    void UnloadLastLevel()
+    {
+        SceneManager.UnloadSceneAsync(currentLevel);
+        currentLevel = 0;
     }
 }
