@@ -19,6 +19,7 @@ TagManager:
   - Shadow_NeedsSequenceOfShadowContact
   - Light_isActivatedOnLightContact
   - Shadow_isActivatedOnShadowContact
+  - LanternLight
   layers:
   - Default
   - TransparentFX
@@ -29,8 +30,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - LanternCollision
+  - Player
   - 
   - 
   - 
