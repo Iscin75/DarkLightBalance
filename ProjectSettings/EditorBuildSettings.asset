@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Sandbox/Nicolas/Logic&UI.unity
     guid: 85a834421a06c2c4aa2debf3daeaee26
   - enabled: 0
-    path: Assets/Sandbox/Nicolas/Level 1.unity
+    path: 
     guid: 907b540bd3a6d2149973dac9b07af31f
   - enabled: 0
-    path: Assets/Sandbox/Nicolas/Level 2.unity
+    path: 
     guid: bcf920acbb048cf4da8a452663398f03
   - enabled: 1
     path: Assets/Sandbox/Nicolas/Level1.unity
     guid: 1a8327e13cba17d47b890aba23a00824
+  - enabled: 1
+    path: Assets/Sandbox/Nicolas/Level2.unity
+    guid: 97645202f4d495c48bda7df988b509e6
   m_configObjects: {}

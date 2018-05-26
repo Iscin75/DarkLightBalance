@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour {
         GameManager.Instance.PauseMenuEvent += ToggleMenuPause;
         GameManager.Instance.ContinueLevelEvent += ToggleMenuPause;
         GameManager.Instance.MainMenuEvent += ToggleMenuPause;
+        GameManager.Instance.RestartLevelEvent += ToggleMenuPause;
     }
 
     void ToggleMenuPause()
@@ -40,6 +41,13 @@ public class PauseMenu : MonoBehaviour {
     public void OnClickMenuPrincipal()
     {
         isActive = false;
-        GameManager.Instance.CallMainMenuEvent();
+        GameManager.Instance.CallMainMenu();
     }
+
+    public void OnClickRestart()
+    {
+        isActive = false;
+        GameManager.Instance.CallRestartLevel();
+    }
+
 }

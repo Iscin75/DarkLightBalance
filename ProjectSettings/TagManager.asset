@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - posDebut
-  - endTrigger
   - Exit
   - PowerFloor
   - LanternForWall
@@ -19,6 +17,7 @@ TagManager:
   - Shadow_NeedsSequenceOfShadowContact
   - Light_isActivatedOnLightContact
   - Shadow_isActivatedOnShadowContact
+  - StartPoint
   layers:
   - Default
   - TransparentFX

@@ -1106,6 +1106,19 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_PrefabInternal: {fileID: 560676916}
+--- !u!136 &1724968605
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724968604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.69
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1783106414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d349a4d998004ec4f8cf988b1cb57b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelStartPosition: {fileID: 0}
 --- !u!114 &1846356732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,7 +1260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213b3f6a2c5c4e94a803cf78f984c09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 1724968604}
 --- !u!114 &1846356733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,7 +1347,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1928022060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 151566899}
+        m_MethodName: OnClickRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1928022060

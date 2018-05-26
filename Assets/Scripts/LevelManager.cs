@@ -5,26 +5,61 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    static int currentLevel;
+    int currentLevel = 0;
+    [SerializeField]
+    Transform levelStartPosition;
 
     private void OnEnable()
     {
         GameManager.Instance.StartGameEvent += LoadNextLevel;
-        GameManager.Instance.MainMenuEvent += UnloadLastLevel;
+        GameManager.Instance.MainMenuEvent += UnloadGame;
+        GameManager.Instance.RestartLevelEvent += RestartLevel;
+        GameManager.Instance.LevelVictoryEvent += LoadNextLevel;
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
 
 
     void LoadNextLevel()
     {
-     
-         currentLevel++;
-         SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
         
+        if (SceneManager.sceneCountInBuildSettings > currentLevel + 1 )
+        {
+            if (SceneManager.sceneCount > 1)
+            {
+                SceneManager.UnloadSceneAsync(currentLevel);
+            }
+            currentLevel++;
+
+            SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
+        }
+        else
+        {
+            Debug.Log("Win");
+            //TODO Panel Victoire
+        }
+
+
     }
 
-    void UnloadLastLevel()
+    void UnloadGame()
     {
         SceneManager.UnloadSceneAsync(currentLevel);
         currentLevel = 0;
     }
+
+    void RestartLevel()
+    {
+        SceneManager.UnloadSceneAsync(currentLevel);
+        SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+       if(currentLevel != 0)
+        {
+            levelStartPosition = GameObject.FindGameObjectWithTag("StartPoint").transform;
+            PlayerManager.SetPlayerTransform(levelStartPosition);
+        }
+    }
+
 }

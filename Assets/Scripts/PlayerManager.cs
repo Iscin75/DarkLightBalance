@@ -6,10 +6,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class PlayerManager : MonoBehaviour {
 
     [SerializeField]
-    GameObject m_Player;
+    public static GameObject m_Player;
 
     private void Awake()
     {
+        m_Player = GameObject.FindGameObjectWithTag("Player");
         DisableController();
     }
 
@@ -19,6 +20,7 @@ public class PlayerManager : MonoBehaviour {
         GameManager.Instance.ContinueLevelEvent += EnableController;
         GameManager.Instance.StartGameEvent += EnableController;
         GameManager.Instance.MainMenuEvent += DisableController;
+        GameManager.Instance.RestartLevelEvent += EnableController;
     }
 
     public void DisableController()
@@ -30,6 +32,14 @@ public class PlayerManager : MonoBehaviour {
     {
         m_Player.GetComponent<FirstPersonController>().enabled = true;
     }
+
+    public static void SetPlayerTransform(Transform pPositions)
+    {
+        m_Player.transform.position = pPositions.position;
+        m_Player.transform.rotation = pPositions.rotation;
+        
+    }
+ 
 
 
 
