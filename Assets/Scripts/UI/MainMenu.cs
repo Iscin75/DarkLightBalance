@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour {
     [SerializeField]
     GameObject m_mainMenuPanel;
 
-
     private void OnEnable()
     {
         GameManager.Instance.StartGameEvent += ToggleMenuPrincipal;

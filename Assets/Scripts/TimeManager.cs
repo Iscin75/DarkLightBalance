@@ -17,7 +17,6 @@ public class TimeManager : MonoBehaviour {
         GameManager.Instance.RestartLevelEvent += StartTime;
     }
 
-
     void StopTime()
     {
         Time.timeScale = 0;
