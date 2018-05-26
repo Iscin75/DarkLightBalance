@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+    #region Variables
     int currentLevel = 0;
     [SerializeField]
     Transform levelStartPosition;
+    #endregion
 
     private void OnEnable()
     {
@@ -18,18 +18,15 @@ public class LevelManager : MonoBehaviour {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
 
-
     void LoadNextLevel()
     {
         
         if (SceneManager.sceneCountInBuildSettings > currentLevel + 1 )
         {
             if (SceneManager.sceneCount > 1)
-            {
                 SceneManager.UnloadSceneAsync(currentLevel);
-            }
+            
             currentLevel++;
-
             SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
         }
         else
@@ -37,8 +34,6 @@ public class LevelManager : MonoBehaviour {
             Debug.Log("Win");
             //TODO Panel Victoire
         }
-
-
     }
 
     void UnloadGame()
@@ -57,7 +52,14 @@ public class LevelManager : MonoBehaviour {
     {
        if(currentLevel != 0)
         {
-            levelStartPosition = GameObject.FindGameObjectWithTag("StartPoint").transform;
+            try
+            {
+                levelStartPosition = GameObject.FindGameObjectWithTag("StartPoint").transform;
+            }
+            catch
+            {
+                Debug.LogError("Point de départ inexistant dans le niveau suivant, merci d'assigner un tag StartPoint dans la scène correspondante");
+            }
             PlayerManager.SetPlayerTransform(levelStartPosition);
         }
     }

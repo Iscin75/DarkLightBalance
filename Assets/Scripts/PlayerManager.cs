@@ -1,16 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerManager : MonoBehaviour {
 
+    #region Variables
     [SerializeField]
     public static GameObject m_Player;
+    #endregion
 
     private void Awake()
     {
-        m_Player = GameObject.FindGameObjectWithTag("Player");
+        try
+        {
+            m_Player = GameObject.FindGameObjectWithTag("Player");
+        }
+        catch
+        {
+            Debug.LogError("Contrôleur du personnage introuvable, merci de l'ajouter et/ou d'y assigner le tag Player");
+        }
         DisableController();
     }
 
