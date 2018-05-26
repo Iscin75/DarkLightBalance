@@ -43,11 +43,6 @@ public class PlayerManager : MonoBehaviour {
     public static void SetPlayerTransform(Transform pPositions)
     {
         m_Player.transform.position = pPositions.position;
-        m_Player.transform.rotation = pPositions.rotation;
-        
+        m_Player.transform.rotation = pPositions.rotation;  
     }
- 
-
-
-
 }
