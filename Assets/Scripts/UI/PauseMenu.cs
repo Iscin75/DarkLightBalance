@@ -1,12 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PauseMenu : MonoBehaviour {
 
-	[SerializeField]
+    #region Variables
+    [SerializeField]
     GameObject m_PauseMenuPanel;
     bool isActive = false;
+    #endregion
+
+    private void Awake()
+    {
+        if(m_PauseMenuPanel == null)
+            Debug.LogError("Merci d'assigner le menu pause au composant PauseMenu dans l'Inspector");
+    }
 
     private void Update()
     {

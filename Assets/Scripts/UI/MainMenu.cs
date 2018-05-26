@@ -1,11 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MainMenu : MonoBehaviour {
 
+    #region Variables
     [SerializeField]
     GameObject m_mainMenuPanel;
+    #endregion
+
+    private void Awake()
+    {
+        if (m_mainMenuPanel == null)
+            Debug.LogError("Merci d'assigner le menu principal au composant MainMenu dans l'Inspector");
+    }
 
     private void OnEnable()
     {

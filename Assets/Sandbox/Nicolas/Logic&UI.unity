@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 151566897}
   - component: {fileID: 151566899}
   m_Layer: 0
-  m_Name: UI
+  m_Name: GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ Transform:
   m_Children:
   - {fileID: 764393186}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &151566899
 MonoBehaviour:
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 764393184}
   - component: {fileID: 764393183}
   m_Layer: 5
-  m_Name: UICanvas
+  m_Name: GUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1095,12 +1095,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1688273029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1846356729}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724968604 stripped
 GameObject:
@@ -1206,7 +1206,7 @@ GameObject:
   - component: {fileID: 1846356732}
   - component: {fileID: 1846356733}
   m_Layer: 0
-  m_Name: Logic
+  m_Name: Management
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1223,8 +1223,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 560676917}
+  - {fileID: 1688273032}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1846356730
 MonoBehaviour:
