@@ -12,10 +12,11 @@ public class LevelManager : MonoBehaviour {
     private void OnEnable()
     {
         GameManager.Instance.StartGameEvent += LoadNextLevel;
-        GameManager.Instance.MainMenuEvent += UnloadGame;
+        GameManager.Instance.PauseToMainMenuEvent += UnloadGame;
         GameManager.Instance.RestartLevelEvent += RestartLevel;
         GameManager.Instance.LevelVictoryEvent += LoadNextLevel;
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
+        GameManager.Instance.VictoryToMainMenuEvent += UnloadGame;
     }
 
     void LoadNextLevel()
@@ -31,8 +32,7 @@ public class LevelManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Win");
-            //TODO Panel Victoire
+            GameManager.Instance.CallGameVictory();
         }
     }
 

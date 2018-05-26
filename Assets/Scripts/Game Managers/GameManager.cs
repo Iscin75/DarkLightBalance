@@ -5,15 +5,21 @@
     public event GameEventHandler RestartLevelEvent;
     public event GameEventHandler PauseMenuEvent;
     public event GameEventHandler ContinueLevelEvent;
-    public event GameEventHandler MainMenuEvent;
+    public event GameEventHandler PauseToMainMenuEvent;
     public event GameEventHandler LevelVictoryEvent;
-    
+    public event GameEventHandler GameVictoryEvent;
+    public event GameEventHandler VictoryToMainMenuEvent;
+
+    public bool isGameWin = false;
+    public bool isGameStarted = false;
 
     public void CallStartGame()
     {
         if (StartGameEvent != null)
+        {
+            isGameStarted = true;
             StartGameEvent();
-        
+        }
     }
 
     public void CallPauseMenu()
@@ -34,16 +40,39 @@
             RestartLevelEvent();
     }
 
-    public void CallMainMenu()
+    public void CallPauseToMainMenu()
     {
         if (StartGameEvent != null)
-            MainMenuEvent();
+        {
+            isGameStarted = false;
+            PauseToMainMenuEvent();
+        }
+
+    }
+
+    public void CallVictoryToMainMenu()
+    {
+        if (VictoryToMainMenuEvent != null)
+        {
+            isGameWin = false;
+            isGameStarted = false;
+            VictoryToMainMenuEvent();
+        }
     }
 
     public void CallLevelVictory()
     {
         if (LevelVictoryEvent != null)
             LevelVictoryEvent();
+    }
+
+    public void CallGameVictory()
+    {
+        if (GameVictoryEvent != null)
+        {
+            isGameWin = true;
+            GameVictoryEvent();
+        }
     }
 
 
