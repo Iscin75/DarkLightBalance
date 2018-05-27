@@ -1,4 +1,4 @@
-﻿Shader "Stencil Show Effect" {
+﻿Shader "Custom/Stencil_Alex/Stencil Show Effect" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -6,9 +6,16 @@
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" }
+		Tags { "RenderType"="Opaque" "Queue"="Geometry-100" }
 		LOD 200
 
+		ColorMask 0
+		ZWrite off
+
+		Stencil {
+			Ref 34
+			Pass replace
+		}
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
 		#pragma surface surf Standard fullforwardshadows

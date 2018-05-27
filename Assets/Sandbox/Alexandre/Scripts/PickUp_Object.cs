@@ -53,10 +53,11 @@ public class PickUp_Object : MonoBehaviour
     void dropObject()
     {
         Rigidbody a_r = carriedObj.GetComponent<Rigidbody>();
-        a_r.constraints |= RigidbodyConstraints.FreezeRotationY;
         carriedObj.transform.eulerAngles = new Vector3(originalRotationValue.eulerAngles.x, mainCamera.transform.eulerAngles.y,
             originalRotationValue.eulerAngles.z);
         carriedObj.transform.position = new Vector3(carriedObj.transform.position.x, mainCamera.transform.position.y, carriedObj.transform.position.z);
+        a_r.constraints |= RigidbodyConstraints.FreezeRotationY;
+        a_r.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         Light l_p = carriedObj.GetComponentInChildren<Light>(true);
         if (l_p != null)
             l_p.enabled = true;
@@ -83,6 +84,7 @@ public class PickUp_Object : MonoBehaviour
                 {
                     Rigidbody a_r = p.GetComponent<Rigidbody>();
                     a_r.constraints &= ~RigidbodyConstraints.FreezeRotationY;
+                    a_r.constraints &= ~RigidbodyConstraints.FreezePositionX & ~RigidbodyConstraints.FreezePositionZ;
                     a_r.useGravity = false;
                     carryingObj = true;
                     carriedObj = p.gameObject;
