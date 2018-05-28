@@ -18,6 +18,8 @@ TagManager:
   - Light_isActivatedOnLightContact
   - Shadow_isActivatedOnShadowContact
   - StartPoint
+  - LanternLight
+  - lanternCamera
   layers:
   - Default
   - TransparentFX
@@ -28,8 +30,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - LanternLayer
+  - PlayerLayer
   - 
   - 
   - 
