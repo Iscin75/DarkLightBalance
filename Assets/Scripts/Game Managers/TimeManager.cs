@@ -14,6 +14,7 @@ public class TimeManager : MonoBehaviour {
         GameManager.Instance.StartGameEvent += StartTime;
         GameManager.Instance.RestartLevelEvent += StartTime;
         GameManager.Instance.GameVictoryEvent += StopTime;
+        GameManager.Instance.GameLooseEvent += StopTime;
     }
 
     void StopTime()

@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour {
         GameManager.Instance.LevelVictoryEvent += LoadNextLevel;
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
         GameManager.Instance.VictoryToMainMenuEvent += UnloadGame;
+        GameManager.Instance.LooseToMainMenuEvent += UnloadGame;
     }
 
     void LoadNextLevel()

@@ -20,12 +20,14 @@ public class PauseMenu : MonoBehaviour {
         {
             if (!isActive)
             {
+                GameManager.Instance.isGamePaused = true;
                 isActive = true;
                 GameManager.Instance.CallPauseMenu();
             }
             else
             {
                 isActive = false;
+                GameManager.Instance.isGamePaused = false;
                 GameManager.Instance.CallContinueLevel();
             }
         }

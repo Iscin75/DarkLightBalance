@@ -1,5 +1,6 @@
 ﻿public class GameManager : Singleton<GameManager> {
 
+    #region eventsList
     public delegate void GameEventHandler();
     public event GameEventHandler StartGameEvent;
     public event GameEventHandler RestartLevelEvent;
@@ -9,9 +10,15 @@
     public event GameEventHandler LevelVictoryEvent;
     public event GameEventHandler GameVictoryEvent;
     public event GameEventHandler VictoryToMainMenuEvent;
+    public event GameEventHandler GameLooseEvent;
+    public event GameEventHandler LooseToMainMenuEvent;
+    #endregion
 
+    #region GlobalVariables
     public bool isGameWin = false;
     public bool isGameStarted = false;
+    public bool isGamePaused = false;
+    #endregion
 
     public void CallStartGame()
     {
@@ -72,6 +79,22 @@
         {
             isGameWin = true;
             GameVictoryEvent();
+        }
+    }
+
+   public void CallGameLoose()
+    {
+        if (GameLooseEvent != null)
+            isGameWin = false;
+            GameLooseEvent();
+    }
+
+    public void CallLooseToMainMenu()
+    {
+        if(LooseToMainMenuEvent != null)
+        {
+            isGameStarted = false;
+            LooseToMainMenuEvent();
         }
     }
 

@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour {
         GameManager.Instance.PauseToMainMenuEvent += DisableController;
         GameManager.Instance.RestartLevelEvent += EnableController;
         GameManager.Instance.GameVictoryEvent += DisableController;
+        GameManager.Instance.GameLooseEvent += DisableController;
 
     }
 

@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour {
         GameManager.Instance.StartGameEvent += ToggleMenuPrincipal;
         GameManager.Instance.PauseToMainMenuEvent += ToggleMenuPrincipal;
         GameManager.Instance.VictoryToMainMenuEvent += ToggleMenuPrincipal;
+        GameManager.Instance.LooseToMainMenuEvent += ToggleMenuPrincipal;
     }
 
     void ToggleMenuPrincipal()
