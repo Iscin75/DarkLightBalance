@@ -17,13 +17,14 @@
     #region GlobalVariables
     public bool isGameWin = false;
     public bool isGameStarted = false;
-    public bool isGamePaused = false;
+    public bool isGamePaused ;
     #endregion
 
     public void CallStartGame()
     {
         if (StartGameEvent != null)
         {
+            isGamePaused = false;
             isGameStarted = true;
             StartGameEvent();
         }

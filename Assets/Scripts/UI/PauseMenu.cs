@@ -54,6 +54,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void OnClickRestart()
     {
+        GameManager.Instance.isGamePaused = false;
         isActive = false;
         GameManager.Instance.CallRestartLevel();
     }

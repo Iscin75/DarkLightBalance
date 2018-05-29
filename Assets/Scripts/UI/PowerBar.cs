@@ -10,6 +10,7 @@ public class PowerBar : MonoBehaviour {
     float m_PowerDuration = 10f;
     float m_timeLeft;
     bool isPowerActive = false;
+    bool isPowerEmpty = false;
     #endregion
 
     private void Awake()
@@ -27,17 +28,18 @@ public class PowerBar : MonoBehaviour {
     {
         GameManager.Instance.StartGameEvent += ResetPowerBar;
         GameManager.Instance.RestartLevelEvent += ResetPowerBar;
+        GameManager.Instance.GameVictoryEvent += StopPowerBar;
         GameManager.Instance.LevelVictoryEvent += ResetPowerBar;
         GameManager.Instance.RestartLevelEvent += StopPowerBar;
         GameManager.Instance.PauseMenuEvent += StopPowerBar;
         GameManager.Instance.GameLooseEvent += StopPowerBar;
-        GameManager.Instance.GameVictoryEvent += StopPowerBar;
+        GameManager.Instance.LevelVictoryEvent += StopPowerBar;
     }
 
     private void Update()
     {
         CheckForPowerActivation();
-        if (GameManager.Instance.isGameStarted && isPowerActive)
+        if (!isPowerEmpty && GameManager.Instance.isGameStarted && isPowerActive)
         {
             if (m_timeLeft > 0)
             {
@@ -46,8 +48,8 @@ public class PowerBar : MonoBehaviour {
             }
             else
             {
-                GameManager.Instance.isGameStarted = false;
-                GameManager.Instance.CallGameLoose();
+
+                isPowerEmpty = true;
             }
         }
     }
@@ -60,13 +62,19 @@ public class PowerBar : MonoBehaviour {
 
     void ResetPowerBar()
     {
-        m_timeLeft = m_PowerDuration;
-        m_PowerBar.fillAmount = m_PowerDuration;
+        if(!GameManager.Instance.isGameWin)
+        {
+            isPowerEmpty = false;
+            m_timeLeft = m_PowerDuration;
+            m_PowerBar.fillAmount = m_PowerDuration;
+        }
+      
     }
 
     void StopPowerBar()
     {
         isPowerActive = false;
+        
     }
 
     
