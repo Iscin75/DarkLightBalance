@@ -10,7 +10,7 @@ public class PickUp_Object : MonoBehaviour
     GameObject carriedObj;
 
     Quaternion originalRotationValue;
-
+    
     public float distance;
     public float smooth;
 
@@ -33,6 +33,36 @@ public class PickUp_Object : MonoBehaviour
         else
         {
             pickup();
+            switchLanternMode();
+        }
+    }
+
+    void switchLanternMode()
+    {
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            int x = Screen.width / 2;
+            int y = Screen.height / 2;
+
+            Ray ray = mainCamera.ScreenPointToRay(new Vector3(x, y));
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                PickUp_Able p = null;
+                if (hit.distance <= 3)
+                    p = hit.collider.GetComponent<PickUp_Able>();
+                if (p != null)
+                {
+                    LanternLightMaterial coneLightScript = p.GetComponentInChildren<LanternLightMaterial>();
+                    if (coneLightScript != null)
+                        coneLightScript.isChanged = true;
+
+                    LanternEffect[] planeShaderScript = p.GetComponentsInChildren<LanternEffect>();
+                    foreach ( LanternEffect le in planeShaderScript )
+                        if( le != null )
+                            le.isChanged = true;
+                }
+            }
         }
     }
 
@@ -58,9 +88,24 @@ public class PickUp_Object : MonoBehaviour
         carriedObj.transform.position = new Vector3(carriedObj.transform.position.x, mainCamera.transform.position.y, carriedObj.transform.position.z);
         a_r.constraints |= RigidbodyConstraints.FreezeRotationY;
         a_r.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
-        Light l_p = carriedObj.GetComponentInChildren<Light>(true);
+
+        Camera lanternCamera = carriedObj.GetComponentInChildren<Camera>(true);
+        if (lanternCamera != null)
+            lanternCamera.gameObject.SetActive(true);
+        else
+            Debug.Log("pas trouvé");
+
+        Transform[] cones = carriedObj.GetComponentsInChildren<Transform> (true);
+        foreach (Transform cone in cones)
+        {
+            if (cone.gameObject.tag == "LanternEffect")
+                cone.gameObject.SetActive(true);
+        }
+
+        /*Light l_p = carriedObj.GetComponentInChildren<Light>(true);
         if (l_p != null)
-            l_p.enabled = true;
+            l_p.enabled = true;*/
+
         a_r.useGravity = true;
         carryingObj = false;
         carriedObj = null;
@@ -79,9 +124,25 @@ public class PickUp_Object : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                PickUp_Able p = hit.collider.GetComponent<PickUp_Able>();
+                PickUp_Able p = null;
+                if ( hit.distance <= 3 )
+                    p = hit.collider.GetComponent<PickUp_Able>();
                 if (p != null)
                 {
+                    Camera lanternCamera = p.GetComponentInChildren<Camera>();
+                    if( lanternCamera != null)
+                        lanternCamera.gameObject.SetActive(false);
+
+                    else
+                        Debug.Log("pas trouvé");
+
+                    Transform[] cones = p.GetComponentsInChildren<Transform>();
+                    foreach ( Transform cone in cones )
+                    {
+                        if (cone.gameObject.tag == "LanternEffect")
+                            cone.gameObject.SetActive(false);
+                    }
+
                     Rigidbody a_r = p.GetComponent<Rigidbody>();
                     a_r.constraints &= ~RigidbodyConstraints.FreezeRotationY;
                     a_r.constraints &= ~RigidbodyConstraints.FreezePositionX & ~RigidbodyConstraints.FreezePositionZ;
@@ -90,9 +151,11 @@ public class PickUp_Object : MonoBehaviour
                     carriedObj = p.gameObject;
                     originalRotationValue = carriedObj.transform.rotation;
                     Physics.IgnoreLayerCollision(9, 10, true);
-                    Light l_p = p.GetComponentInChildren<Light>(true);
+
+
+                    /*Light l_p = p.GetComponentInChildren<Light>(true);
                     if (l_p != null)
-                        l_p.enabled = false;
+                        l_p.enabled = false;*/
                 }
             }
         }
