@@ -43,4 +43,9 @@ public class LanternLightMaterial : MonoBehaviour {
         }
         isChanged = false;
     }
+
+    public Color getCurrentColor()
+    {
+        return rend.material.GetColor("_TintColor");
+    }
 }

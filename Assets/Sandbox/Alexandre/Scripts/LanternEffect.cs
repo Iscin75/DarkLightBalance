@@ -9,6 +9,8 @@ public class LanternEffect : MonoBehaviour {
     public Material EffectShadow;
 
     Renderer rend;
+    GameObject room;
+    LanternLightMaterial currentLightning;
     public bool isChanged;
 
 	// Use this for initialization
@@ -17,6 +19,7 @@ public class LanternEffect : MonoBehaviour {
         rend.material = EffectNull;
         rend.enabled = false;
         isChanged = false;
+        room = GameObject.Find("Level");
     }
 	
 	// Update is called once per frame
@@ -28,16 +31,30 @@ public class LanternEffect : MonoBehaviour {
 
     void change()
     {
-        if (rend.material.shader == EffectNull.shader )
+        currentLightning = transform.parent.GetComponentInChildren<LanternLightMaterial>();
+
+        Debug.Log(room.tag);
+        Debug.Log(currentLightning.getCurrentColor());
+
+        if ( currentLightning.getCurrentColor() == currentLightning.materialLight.GetColor("_TintColor"))
         {
-            rend.material = EffectLight;
-            rend.enabled = true;
+            rend.enabled = false;
+            if ( room.tag == "Shadow_Room")
+            {
+                rend.material = EffectShadow;
+                rend.enabled = true;
+            }
         }
-        else if (rend.material.shader == EffectLight.shader)
+        else if ( currentLightning.getCurrentColor() == currentLightning.materialShadow.GetColor("_TintColor"))
         {
-            rend.material = EffectShadow;
+            rend.enabled = false;
+            if (room.tag == "Light_Room")
+            {
+                rend.material = EffectLight;
+                rend.enabled = true;
+            }
         }
-        else if (rend.material.shader == EffectShadow.shader)
+        else if ( currentLightning.getCurrentColor() == currentLightning.materialNull.GetColor("_TintColor"))
         {
             rend.material = EffectNull;
             rend.enabled = false;
