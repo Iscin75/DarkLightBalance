@@ -1,5 +1,6 @@
 ﻿public class GameManager : Singleton<GameManager> {
 
+
     #region eventsList
     public delegate void GameEventHandler();
     public event GameEventHandler StartGameEvent;
@@ -102,3 +103,7 @@
 
 
 }
+
+#region Enum
+public enum ObjectState { NoState, Light, Shadow };
+#endregion

@@ -21,6 +21,8 @@ TagManager:
   - LanternLight
   - lanternCamera
   - LanternEffect
+  - Light_Room
+  - Shadow_Room
   layers:
   - Default
   - TransparentFX
