@@ -6,12 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Sandbox/Nicolas/Logic&UI.unity
+    path: Assets/Scenes/Logic&UI.unity
     guid: 85a834421a06c2c4aa2debf3daeaee26
   - enabled: 1
-    path: Assets/Sandbox/Nicolas/Level1.unity
-    guid: 1a8327e13cba17d47b890aba23a00824
-  - enabled: 1
-    path: Assets/Sandbox/Nicolas/Level2.unity
-    guid: 97645202f4d495c48bda7df988b509e6
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: 8650683d98da98c44ace055f0c24f381
   m_configObjects: {}

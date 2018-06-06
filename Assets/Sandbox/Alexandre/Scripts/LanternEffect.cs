@@ -19,7 +19,7 @@ public class LanternEffect : MonoBehaviour {
         rend.material = EffectNull;
         rend.enabled = false;
         isChanged = false;
-        room = GameObject.Find("Level");
+        room = GameObject.Find("World");
     }
 	
 	// Update is called once per frame

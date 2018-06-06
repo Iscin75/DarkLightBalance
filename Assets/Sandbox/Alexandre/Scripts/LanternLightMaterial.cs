@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class LanternLightMaterial : MonoBehaviour {
 
+    [SerializeField]
     public Material materialNull;
+    [SerializeField]
     public Material materialLight;
+    [SerializeField]
     public Material materialShadow;
+    [SerializeField]
+    GameObject currentLantern;
+    ActiveItem lanternState;
 
     Renderer rend;
     public bool isChanged;
@@ -17,6 +23,7 @@ public class LanternLightMaterial : MonoBehaviour {
         rend.material = materialNull;
         rend.enabled = false;
         isChanged = false;
+        lanternState = currentLantern.GetComponent<ActiveItem>();
     }
 	
 	// Update is called once per frame
@@ -27,18 +34,23 @@ public class LanternLightMaterial : MonoBehaviour {
 
     void change()
     {
-        if (rend.material.GetColor( "_TintColor" )== materialNull.GetColor("_TintColor"))
+
+        if( lanternState.m_ObjectState == ObjectState.NoState )
         {
             rend.material = materialLight;
+            lanternState.m_ObjectState = ObjectState.Light;
+
             rend.enabled = true;
         }
-        else if (rend.material.GetColor("_TintColor") == materialLight.GetColor("_TintColor"))
+        else if( lanternState.m_ObjectState == ObjectState.Light )
         {
             rend.material = materialShadow;
+            lanternState.m_ObjectState = ObjectState.Shadow;
         }
-        else if (rend.material.GetColor("_TintColor") == materialShadow.GetColor("_TintColor"))
+        else if( lanternState.m_ObjectState == ObjectState.Shadow )
         {
             rend.material = materialNull;
+            lanternState.m_ObjectState = ObjectState.NoState;
             rend.enabled = false;
         }
         isChanged = false;
