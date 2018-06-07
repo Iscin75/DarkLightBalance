@@ -5,11 +5,13 @@ using UnityEngine;
 public class LanternEffect : MonoBehaviour {
 
     public Material EffectNull;
-    public Material EffectLight;
     public Material EffectShadow;
 
+    [SerializeField]
+    GameObject currentLantern;
+    ActiveItem lanternState;
+
     Renderer rend;
-    GameObject room;
     LanternLightMaterial currentLightning;
     public bool isChanged;
 
@@ -19,45 +21,29 @@ public class LanternEffect : MonoBehaviour {
         rend.material = EffectNull;
         rend.enabled = false;
         isChanged = false;
-        room = GameObject.Find("World");
+        lanternState = currentLantern.GetComponent<ActiveItem>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 		if( isChanged )
             change();
-
 	}
 
     void change()
     {
-        currentLightning = transform.parent.GetComponentInChildren<LanternLightMaterial>();
 
-        Debug.Log(room.tag);
-        Debug.Log(currentLightning.getCurrentColor());
+        Debug.Log(lanternState.m_ObjectState);
 
-        if ( currentLightning.getCurrentColor() == currentLightning.materialLight.GetColor("_TintColor"))
+        if ( lanternState.m_ObjectState == ObjectState.Shadow )
         {
-            rend.enabled = false;
-            if ( room.tag == "Shadow_Room")
-            {
                 rend.material = EffectShadow;
                 rend.enabled = true;
-            }
         }
-        else if ( currentLightning.getCurrentColor() == currentLightning.materialShadow.GetColor("_TintColor"))
+        else if ( lanternState.m_ObjectState == ObjectState.NoState )
         {
-            rend.enabled = false;
-            if (room.tag == "Light_Room")
-            {
-                rend.material = EffectLight;
-                rend.enabled = true;
-            }
-        }
-        else if ( currentLightning.getCurrentColor() == currentLightning.materialNull.GetColor("_TintColor"))
-        {
-            rend.material = EffectNull;
-            rend.enabled = false;
+                rend.material = EffectNull;
+                rend.enabled = false;
         }
         isChanged = false;
     }

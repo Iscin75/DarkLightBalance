@@ -105,5 +105,5 @@
 }
 
 #region Enum
-public enum ObjectState { NoState, Light, Shadow };
+public enum ObjectState { NoState, Shadow };
 #endregion

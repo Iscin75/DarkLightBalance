@@ -7,8 +7,6 @@ public class LanternLightMaterial : MonoBehaviour {
     [SerializeField]
     public Material materialNull;
     [SerializeField]
-    public Material materialLight;
-    [SerializeField]
     public Material materialShadow;
     [SerializeField]
     GameObject currentLantern;
@@ -37,15 +35,9 @@ public class LanternLightMaterial : MonoBehaviour {
 
         if( lanternState.m_ObjectState == ObjectState.NoState )
         {
-            rend.material = materialLight;
-            lanternState.m_ObjectState = ObjectState.Light;
-
-            rend.enabled = true;
-        }
-        else if( lanternState.m_ObjectState == ObjectState.Light )
-        {
             rend.material = materialShadow;
             lanternState.m_ObjectState = ObjectState.Shadow;
+            rend.enabled = true;
         }
         else if( lanternState.m_ObjectState == ObjectState.Shadow )
         {
