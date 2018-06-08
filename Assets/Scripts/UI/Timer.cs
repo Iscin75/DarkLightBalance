@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour {
 
     void Update () {
 
-        if (GameManager.Instance.isGameStarted)
+        if (GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused)
         {
             if (m_timeLeft > 0)
             {
