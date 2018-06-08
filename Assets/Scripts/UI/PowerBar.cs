@@ -48,7 +48,7 @@ public class PowerBar : MonoBehaviour {
             }
             else
             {
-                GameManager.Instance.CallEmptyPowerBar();
+
                 isPowerEmpty = true;
             }
         }

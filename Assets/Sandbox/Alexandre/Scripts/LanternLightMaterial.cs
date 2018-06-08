@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LanternLightMaterial : MonoBehaviour
-{
+public class LanternLightMaterial : MonoBehaviour {
 
     [SerializeField]
     public Material materialNull;
@@ -16,53 +15,41 @@ public class LanternLightMaterial : MonoBehaviour
     Renderer rend;
     public bool isChanged;
 
-    // Use this for initialization
-    void Start()
-    {
+	// Use this for initialization
+	void Start () {
         rend = GetComponent<Renderer>();
         rend.material = materialNull;
         rend.enabled = false;
         isChanged = false;
         lanternState = currentLantern.GetComponent<ActiveItem>();
     }
-
-    private void OnEnable()
-    {
-        GameManager.Instance.EmptyPowerBarEvent += SwitchOffLight;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isChanged)
+	
+	// Update is called once per frame
+	void Update () {
+		if( isChanged )
             change();
-    }
+	}
 
     void change()
     {
 
-        if (lanternState.m_ObjectState == ObjectState.NoState)
+        if( lanternState.m_ObjectState == ObjectState.NoState )
         {
-            SwitchOnLight();
+            rend.material = materialShadow;
+            lanternState.m_ObjectState = ObjectState.Shadow;
+            rend.enabled = true;
         }
-        else if (lanternState.m_ObjectState == ObjectState.Shadow)
+        else if( lanternState.m_ObjectState == ObjectState.Shadow )
         {
-            SwitchOffLight();
+            rend.material = materialNull;
+            lanternState.m_ObjectState = ObjectState.NoState;
+            rend.enabled = false;
         }
         isChanged = false;
     }
 
-    void SwitchOffLight()
+    public Color getCurrentColor()
     {
-        rend.material = materialNull;
-        lanternState.m_ObjectState = ObjectState.NoState;
-        rend.enabled = false;
-    }
-
-    void SwitchOnLight()
-    {
-        rend.material = materialShadow;
-        lanternState.m_ObjectState = ObjectState.Shadow;
-        rend.enabled = true;
+        return rend.material.GetColor("_TintColor");
     }
 }

@@ -34,7 +34,7 @@ public class ActiveItem : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit))
         {
-            /*Open_Able p = null;
+            Open_Able p = null;
             if (hit.distance <= 6)
                 p = hit.collider.GetComponent<Open_Able>();
             if (p != null)
@@ -52,7 +52,7 @@ public class ActiveItem : MonoBehaviour {
                         Debug.Log("is open");
                 }
                 
-            }*/
+            }
         }
     }
 }
