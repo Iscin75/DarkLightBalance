@@ -2,54 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LanternLightMaterial : MonoBehaviour {
-
-    [SerializeField]
-    public Material materialNull;
-    [SerializeField]
-    public Material materialShadow;
+public class LanternLightMaterial : MonoBehaviour
+{
     [SerializeField]
     GameObject currentLantern;
-    ActiveItem lanternState;
 
-    Renderer rend;
+    LanternState lanternState;
+    
     public bool isChanged;
 
-	// Use this for initialization
-	void Start () {
-        rend = GetComponent<Renderer>();
-        rend.material = materialNull;
-        rend.enabled = false;
+    // Use this for initialization
+    void Start()
+    {
         isChanged = false;
-        lanternState = currentLantern.GetComponent<ActiveItem>();
+        gameObject.SetActive(false);
+        lanternState = currentLantern.GetComponent<LanternState>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if( isChanged )
+
+    private void OnEnable()
+    {
+        GameManager.Instance.EmptyPowerBarEvent += SwitchOffLight;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isChanged)
+        {
             change();
-	}
-
-    void change()
-    {
-
-        if( lanternState.m_ObjectState == ObjectState.NoState )
-        {
-            rend.material = materialShadow;
-            lanternState.m_ObjectState = ObjectState.Shadow;
-            rend.enabled = true;
         }
-        else if( lanternState.m_ObjectState == ObjectState.Shadow )
+    }
+
+    public void change()
+    {
+        if (lanternState.m_ObjectState == ObjectState.NoState)
         {
-            rend.material = materialNull;
-            lanternState.m_ObjectState = ObjectState.NoState;
-            rend.enabled = false;
+            SwitchOnLight();
+        }
+        else if (lanternState.m_ObjectState == ObjectState.Shadow)
+        {
+            SwitchOffLight();
         }
         isChanged = false;
     }
 
-    public Color getCurrentColor()
+    void SwitchOffLight()
     {
-        return rend.material.GetColor("_TintColor");
+        //gameObject.SetActive(false);
+        //Debug.Log(lanternState.m_ObjectState);
+        lanternState.m_ObjectState = ObjectState.NoState;
+
+    }
+
+    void SwitchOnLight()
+    {
+        //gameObject.SetActive(true);
+        //Debug.Log(lanternState.m_ObjectState);
+        lanternState.m_ObjectState = ObjectState.Shadow;
     }
 }

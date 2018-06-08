@@ -23,6 +23,7 @@ TagManager:
   - LanternEffect
   - Light_Room
   - Shadow_Room
+  - DoorActivation
   layers:
   - Default
   - TransparentFX

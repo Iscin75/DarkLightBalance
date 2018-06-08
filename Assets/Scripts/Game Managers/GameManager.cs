@@ -1,4 +1,5 @@
-﻿public class GameManager : Singleton<GameManager> {
+﻿public class GameManager : Singleton<GameManager>
+{
 
 
     #region eventsList
@@ -13,12 +14,13 @@
     public event GameEventHandler VictoryToMainMenuEvent;
     public event GameEventHandler GameLooseEvent;
     public event GameEventHandler LooseToMainMenuEvent;
+    public event GameEventHandler EmptyPowerBarEvent;
     #endregion
 
     #region GlobalVariables
     public bool isGameWin = false;
     public bool isGameStarted = false;
-    public bool isGamePaused ;
+    public bool isGamePaused;
     #endregion
 
     public void CallStartGame()
@@ -84,24 +86,27 @@
         }
     }
 
-   public void CallGameLoose()
+    public void CallGameLoose()
     {
         if (GameLooseEvent != null)
             isGameWin = false;
-            GameLooseEvent();
+        GameLooseEvent();
     }
 
     public void CallLooseToMainMenu()
     {
-        if(LooseToMainMenuEvent != null)
+        if (LooseToMainMenuEvent != null)
         {
             isGameStarted = false;
             LooseToMainMenuEvent();
         }
     }
 
-
-
+    public void CallEmptyPowerBar()
+    {
+        if (EmptyPowerBarEvent != null)
+            EmptyPowerBarEvent();
+    }
 }
 
 #region Enum

@@ -26,7 +26,6 @@ public class PickUp_Object : MonoBehaviour
     {
         if (carryingObj)
         {
-            //Debug.Log("J'te porte");
             carry(carriedObj);
             checkDrop();
         }
@@ -53,14 +52,24 @@ public class PickUp_Object : MonoBehaviour
                     p = hit.collider.GetComponent<PickUp_Able>();
                 if (p != null)
                 {
-                    LanternLightMaterial coneLightScript = p.GetComponentInChildren<LanternLightMaterial>();
-                    if (coneLightScript != null)
-                        coneLightScript.isChanged = true;
+                    LanternLightMaterial[] coneLightScript = p.GetComponentsInChildren<LanternLightMaterial>(true);
+                    foreach (LanternLightMaterial le in coneLightScript)
+                    {
+                        if (le != null)
+                        {
+                            if (le.gameObject.active == true)
+                            {
+                                le.change();
+                                le.gameObject.SetActive(false);
+                            }
+                            else if (le.gameObject.active == false)
+                            {
+                                le.gameObject.SetActive(true);
+                                le.isChanged = true;
+                            }
 
-                    LanternEffect[] planeShaderScript = p.GetComponentsInChildren<LanternEffect>();
-                    foreach ( LanternEffect le in planeShaderScript )
-                        if( le != null )
-                            le.isChanged = true;
+                        }
+                    }
                 }
             }
         }
@@ -89,22 +98,17 @@ public class PickUp_Object : MonoBehaviour
         a_r.constraints |= RigidbodyConstraints.FreezeRotationY;
         a_r.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 
-        Camera lanternCamera = carriedObj.GetComponentInChildren<Camera>(true);
-        if (lanternCamera != null)
-            lanternCamera.gameObject.SetActive(true);
-        else
-            Debug.Log("pas trouvé");
+        LanternState carriedObjState = carriedObj.GetComponent<LanternState>();
 
-        Transform[] cones = carriedObj.GetComponentsInChildren<Transform> (true);
-        foreach (Transform cone in cones)
+        if( carriedObjState.m_ObjectState == ObjectState.Shadow )
         {
-            if (cone.gameObject.tag == "LanternEffect")
-                cone.gameObject.SetActive(true);
+            Transform[] cones = carriedObj.GetComponentsInChildren<Transform>(true);
+            foreach (Transform cone in cones)
+            {
+                if (cone.gameObject.tag == "LanternEffect")
+                    cone.gameObject.SetActive(true);
+            }
         }
-
-        /*Light l_p = carriedObj.GetComponentInChildren<Light>(true);
-        if (l_p != null)
-            l_p.enabled = true;*/
 
         a_r.useGravity = true;
         carryingObj = false;
@@ -129,18 +133,14 @@ public class PickUp_Object : MonoBehaviour
                     p = hit.collider.GetComponent<PickUp_Able>();
                 if (p != null)
                 {
-                    Camera lanternCamera = p.GetComponentInChildren<Camera>();
-                    if( lanternCamera != null)
-                        lanternCamera.gameObject.SetActive(false);
-
-                    else
-                        Debug.Log("pas trouvé");
-
                     Transform[] cones = p.GetComponentsInChildren<Transform>();
                     foreach ( Transform cone in cones )
                     {
-                        if (cone.gameObject.tag == "LanternEffect")
+                        if (cone.gameObject.CompareTag("LanternEffect"))
+                        {
                             cone.gameObject.SetActive(false);
+                        }
+
                     }
 
                     Rigidbody a_r = p.GetComponent<Rigidbody>();
