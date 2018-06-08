@@ -4,26 +4,19 @@ using UnityEngine;
 
 public class LanternLightMaterial : MonoBehaviour
 {
-
-    [SerializeField]
-    public Material materialNull;
-    [SerializeField]
-    public Material materialShadow;
     [SerializeField]
     GameObject currentLantern;
-    ActiveItem lanternState;
 
-    Renderer rend;
+    LanternState lanternState;
+    
     public bool isChanged;
 
     // Use this for initialization
     void Start()
     {
-        rend = GetComponent<Renderer>();
-        rend.material = materialNull;
-        rend.enabled = false;
         isChanged = false;
-        lanternState = currentLantern.GetComponent<ActiveItem>();
+        gameObject.SetActive(false);
+        lanternState = currentLantern.GetComponent<LanternState>();
     }
 
     private void OnEnable()
@@ -35,12 +28,13 @@ public class LanternLightMaterial : MonoBehaviour
     void Update()
     {
         if (isChanged)
+        {
             change();
+        }
     }
 
-    void change()
+    public void change()
     {
-
         if (lanternState.m_ObjectState == ObjectState.NoState)
         {
             SwitchOnLight();
@@ -54,15 +48,16 @@ public class LanternLightMaterial : MonoBehaviour
 
     void SwitchOffLight()
     {
-        rend.material = materialNull;
+        //gameObject.SetActive(false);
+        //Debug.Log(lanternState.m_ObjectState);
         lanternState.m_ObjectState = ObjectState.NoState;
-        rend.enabled = false;
+
     }
 
     void SwitchOnLight()
     {
-        rend.material = materialShadow;
+        //gameObject.SetActive(true);
+        //Debug.Log(lanternState.m_ObjectState);
         lanternState.m_ObjectState = ObjectState.Shadow;
-        rend.enabled = true;
     }
 }
