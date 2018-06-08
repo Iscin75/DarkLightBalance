@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class ActiveItem : MonoBehaviour {
 
-    bool isOpened;
+    bool isActivated;
 
     [SerializeField]
     Camera lumiere;
+    [SerializeField]
+    GameObject cylinder;
     float delay;
     public ObjectState m_ObjectState = ObjectState.NoState;
 
 
 	// Use this for initialization
 	void Start () {
-        isOpened = false;
+        isActivated = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
+
 	}
 
     void LaunchActivation()
@@ -31,12 +34,24 @@ public class ActiveItem : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit))
         {
-            Ouvrir_Able p = null;
+            Open_Able p = null;
             if (hit.distance <= 6)
-                p = hit.collider.GetComponent<Ouvrir_Able>();
+                p = hit.collider.GetComponent<Open_Able>();
             if (p != null)
             {
-
+                p = GetComponentInChildren<Open_Able>();
+                if (p != null)
+                {
+                    if (!p.isOpened)
+                    {
+                        Debug.Log("Closed but no animation");
+                        p.isOpened = true;
+                        cylinder.transform.Rotate(Time.deltaTime, 0, 5, 0);
+                    }
+                    else
+                        Debug.Log("is open");
+                }
+                
             }
         }
     }
