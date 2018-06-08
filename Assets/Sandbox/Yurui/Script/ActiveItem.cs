@@ -35,10 +35,15 @@ public class ActiveItem : MonoBehaviour {
         if (Physics.Raycast(ray, out hit))
         {
             Open_Able p = null;
-            if (hit.distance <= 6)
+            if (hit.distance <= 15)
+            {
                 p = hit.collider.GetComponent<Open_Able>();
+                Debug.Log("Hitted");
+            }
+                
             if (p != null)
             {
+                Debug.Log("entré");
                 p = GetComponentInChildren<Open_Able>();
                 if (p != null)
                 {
