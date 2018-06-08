@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LanternLightMaterial : MonoBehaviour {
+public class LanternLightMaterial : MonoBehaviour
+{
 
     [SerializeField]
     public Material materialNull;
@@ -15,41 +16,53 @@ public class LanternLightMaterial : MonoBehaviour {
     Renderer rend;
     public bool isChanged;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         rend = GetComponent<Renderer>();
         rend.material = materialNull;
         rend.enabled = false;
         isChanged = false;
         lanternState = currentLantern.GetComponent<ActiveItem>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if( isChanged )
+
+    private void OnEnable()
+    {
+        GameManager.Instance.EmptyPowerBarEvent += SwitchOffLight;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isChanged)
             change();
-	}
+    }
 
     void change()
     {
 
-        if( lanternState.m_ObjectState == ObjectState.NoState )
+        if (lanternState.m_ObjectState == ObjectState.NoState)
         {
-            rend.material = materialShadow;
-            lanternState.m_ObjectState = ObjectState.Shadow;
-            rend.enabled = true;
+            SwitchOnLight();
         }
-        else if( lanternState.m_ObjectState == ObjectState.Shadow )
+        else if (lanternState.m_ObjectState == ObjectState.Shadow)
         {
-            rend.material = materialNull;
-            lanternState.m_ObjectState = ObjectState.NoState;
-            rend.enabled = false;
+            SwitchOffLight();
         }
         isChanged = false;
     }
 
-    public Color getCurrentColor()
+    void SwitchOffLight()
     {
-        return rend.material.GetColor("_TintColor");
+        rend.material = materialNull;
+        lanternState.m_ObjectState = ObjectState.NoState;
+        rend.enabled = false;
+    }
+
+    void SwitchOnLight()
+    {
+        rend.material = materialShadow;
+        lanternState.m_ObjectState = ObjectState.Shadow;
+        rend.enabled = true;
     }
 }
