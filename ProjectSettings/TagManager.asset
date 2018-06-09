@@ -8,7 +8,6 @@ TagManager:
   - PowerFloor
   - LanternForWall
   - StartPoint
-  - LanternLight
   - lanternCamera
   - LanternEffect
   - Light_Room

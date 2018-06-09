@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.E))
             if(!isCarryingObject)
             {
                 GameManager.Instance.CallPickUpInteractableObject();
