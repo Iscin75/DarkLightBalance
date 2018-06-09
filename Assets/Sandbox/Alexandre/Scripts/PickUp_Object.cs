@@ -100,7 +100,7 @@ public class PickUp_Object : MonoBehaviour
 
         LanternState carriedObjState = carriedObj.GetComponent<LanternState>();
 
-        if( carriedObjState.m_ObjectState == ObjectState.Shadow )
+        if( carriedObjState != null && carriedObjState.m_ObjectState == ObjectState.Shadow )
         {
             Transform[] cones = carriedObj.GetComponentsInChildren<Transform>(true);
             foreach (Transform cone in cones)

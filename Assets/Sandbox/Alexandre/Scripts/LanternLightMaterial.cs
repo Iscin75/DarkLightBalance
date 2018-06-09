@@ -35,6 +35,7 @@ public class LanternLightMaterial : MonoBehaviour
 
     public void change()
     {
+        Debug.Log(gameObject.name);
         if (lanternState.m_ObjectState == ObjectState.NoState)
         {
             SwitchOnLight();
