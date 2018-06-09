@@ -13,6 +13,7 @@ TagManager:
   - Light_Room
   - Shadow_Room
   - PickableLight
+  - DoorActivation
   layers:
   - Default
   - TransparentFX

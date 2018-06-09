@@ -9,22 +9,22 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1194337393035188}
+  m_RootGameObject: {fileID: 1541924101100262}
   m_IsPrefabParent: 1
---- !u!1 &1194337393035188
+--- !u!1 &1541924101100262
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4561263570164038}
-  - component: {fileID: 33461675461511134}
-  - component: {fileID: 23223510081218702}
-  - component: {fileID: 64370324944084988}
-  - component: {fileID: 82424094665558450}
-  - component: {fileID: 114898759088281664}
-  - component: {fileID: 114530957272413984}
+  - component: {fileID: 4443315349282522}
+  - component: {fileID: 33317974648369008}
+  - component: {fileID: 23941424424942194}
+  - component: {fileID: 64230055562290590}
+  - component: {fileID: 82367306287768956}
+  - component: {fileID: 114742464857341858}
+  - component: {fileID: 114030220979665708}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -32,25 +32,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
   m_IsActive: 1
---- !u!4 &4561263570164038
+--- !u!4 &4443315349282522
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194337393035188}
+  m_GameObject: {fileID: 1541924101100262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2866707, y: 0.4952569, z: -1.7770078}
+  m_LocalPosition: {x: 2.2866704, y: 0.49525738, z: 1.668}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23223510081218702
+--- !u!23 &23941424424942194
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194337393035188}
+  m_GameObject: {fileID: 1541924101100262}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,19 +83,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33461675461511134
+--- !u!33 &33317974648369008
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194337393035188}
+  m_GameObject: {fileID: 1541924101100262}
   m_Mesh: {fileID: 0}
---- !u!64 &64370324944084988
+--- !u!64 &64230055562290590
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194337393035188}
+  m_GameObject: {fileID: 1541924101100262}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -104,12 +104,12 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
---- !u!82 &82424094665558450
+--- !u!82 &82367306287768956
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194337393035188}
+  m_GameObject: {fileID: 1541924101100262}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -199,12 +199,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114530957272413984
+--- !u!114 &114030220979665708
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194337393035188}
+  m_GameObject: {fileID: 1541924101100262}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 185759285, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
@@ -3105,12 +3105,12 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!114 &114898759088281664
+--- !u!114 &114742464857341858
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194337393035188}
+  m_GameObject: {fileID: 1541924101100262}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 16342205, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
