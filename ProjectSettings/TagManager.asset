@@ -7,16 +7,6 @@ TagManager:
   - Exit
   - PowerFloor
   - LanternForWall
-  - Light_DisappearOnShadowContact
-  - Light_isActivatedOnShadowContact
-  - Light_isSeenOnLightContact
-  - Shadow_DisappearOnLightContact
-  - Shadow_isActivatedOnLightContact
-  - Shadow_isSeenOnShadowContact
-  - Light_NeedsSequenceOfLightContact
-  - Shadow_NeedsSequenceOfShadowContact
-  - Light_isActivatedOnLightContact
-  - Shadow_isActivatedOnShadowContact
   - StartPoint
   - LanternLight
   - lanternCamera
@@ -24,6 +14,7 @@ TagManager:
   - Light_Room
   - Shadow_Room
   - PickableLight
+  - DoorActivation
   layers:
   - Default
   - TransparentFX
