@@ -14,6 +14,7 @@ TagManager:
   - Shadow_Room
   - PickableLight
   - DoorActivation
+  - MustDisappear
   layers:
   - Default
   - TransparentFX
