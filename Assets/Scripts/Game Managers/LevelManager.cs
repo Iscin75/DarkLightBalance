@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
@@ -61,8 +62,19 @@ public class LevelManager : MonoBehaviour {
             {
                 Debug.LogError("Point de départ inexistant dans le niveau suivant, merci d'assigner un tag StartPoint dans la scène correspondante");
             }
+            GetAllLanternEffect();
+            LightManager.SwitchOffAllLight();
+            GameManager.Instance.isLightOn = false;
+           
             PlayerManager.SetPlayerTransform(levelStartPosition);
         }
+    }
+
+    void GetAllLanternEffect()
+    {
+        LightManager.allLanternEffects = GameObject.FindGameObjectsWithTag("PickableLight").ToList();
+      
+
     }
 
 }

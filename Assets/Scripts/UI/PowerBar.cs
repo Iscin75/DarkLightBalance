@@ -10,7 +10,7 @@ public class PowerBar : MonoBehaviour {
     float m_PowerDuration = 10f;
     float m_timeLeft;
     bool isPowerActive = false;
-    bool isPowerEmpty = false;
+    
     #endregion
 
     private void Awake()
@@ -38,8 +38,8 @@ public class PowerBar : MonoBehaviour {
 
     private void Update()
     {
-        CheckForPowerActivation();
-        if (!isPowerEmpty && GameManager.Instance.isGameStarted && isPowerActive)
+
+        if (GameManager.Instance.isLightOn && GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused)
         {
             if (m_timeLeft > 0)
             {
@@ -49,22 +49,18 @@ public class PowerBar : MonoBehaviour {
             else
             {
                 GameManager.Instance.CallEmptyPowerBar();
-                isPowerEmpty = true;
+                GameManager.Instance.isOilEmpty = true;
+                GameManager.Instance.isLightOn = false;
             }
         }
     }
 
-    void CheckForPowerActivation()
-    {
-        if (Input.GetKeyDown(KeyCode.P) && GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused)
-            isPowerActive = !isPowerActive;
-    }
 
     void ResetPowerBar()
     {
         if(!GameManager.Instance.isGameWin)
         {
-            isPowerEmpty = false;
+            GameManager.Instance.isOilEmpty = false;
             m_timeLeft = m_PowerDuration;
             m_PowerBar.fillAmount = m_PowerDuration;
         }

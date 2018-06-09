@@ -1,7 +1,5 @@
 ﻿public class GameManager : Singleton<GameManager>
 {
-
-
     #region eventsList
     public delegate void GameEventHandler();
     public event GameEventHandler StartGameEvent;
@@ -15,12 +13,17 @@
     public event GameEventHandler GameLooseEvent;
     public event GameEventHandler LooseToMainMenuEvent;
     public event GameEventHandler EmptyPowerBarEvent;
+    public event GameEventHandler PickUpInteractableObjectEvent;
+    public event GameEventHandler DropInteractableObjectEvent;
+    public event GameEventHandler ToggleLightStateEvent;
     #endregion
 
     #region GlobalVariables
     public bool isGameWin = false;
     public bool isGameStarted = false;
     public bool isGamePaused;
+    public bool isLightOn = false;
+    public bool isOilEmpty = false;
     #endregion
 
     public void CallStartGame()
@@ -106,6 +109,24 @@
     {
         if (EmptyPowerBarEvent != null)
             EmptyPowerBarEvent();
+    }
+
+    public void CallPickUpInteractableObject()
+    {
+        if (PickUpInteractableObjectEvent != null)
+            PickUpInteractableObjectEvent();
+    }
+
+    public void CallDropInteractableObject()
+    {
+        if (DropInteractableObjectEvent != null)
+            DropInteractableObjectEvent();
+    }
+
+    public void CallToggleLightState()
+    {
+        if (ToggleLightStateEvent != null)
+            ToggleLightStateEvent();
     }
 }
 

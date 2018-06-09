@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour {
     #region Variables
     [SerializeField]
     public static GameObject m_Player;
+    public static bool isCarryingObject = false;
     #endregion
 
     private void Awake()
@@ -19,6 +20,24 @@ public class PlayerManager : MonoBehaviour {
             Debug.LogError("Contrôleur du personnage introuvable, merci de l'ajouter et/ou d'y assigner le tag Player");
         }
         DisableController();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            if(!isCarryingObject)
+            {
+                GameManager.Instance.CallPickUpInteractableObject();
+            }
+            else
+            {
+                GameManager.Instance.CallDropInteractableObject();
+            }
+
+        if(!GameManager.Instance.isOilEmpty && !isCarryingObject && Input.GetKeyDown(KeyCode.R))
+        {
+            GameManager.Instance.CallToggleLightState();
+        }
     }
 
     private void OnEnable()
