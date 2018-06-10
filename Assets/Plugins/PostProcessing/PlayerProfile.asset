@@ -83,7 +83,7 @@ MonoBehaviour:
       sampleCount: 10
       frameBlending: 0
   eyeAdaptation:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       lowPercent: 45
       highPercent: 95
@@ -109,7 +109,7 @@ MonoBehaviour:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 1
@@ -120,12 +120,12 @@ MonoBehaviour:
         neutralWhiteLevel: 5.3
         neutralWhiteClip: 10
       basic:
-        postExposure: 2.22
-        temperature: -6.5
-        tint: 12.9
+        postExposure: 1.56
+        temperature: 13.5
+        tint: 17.1
         hueShift: 0
-        saturation: 1.1
-        contrast: 1.05
+        saturation: 1.015
+        contrast: 0.916
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
@@ -157,9 +157,9 @@ MonoBehaviour:
               outWeight: 0
             - serializedVersion: 3
               time: 1
-              value: 1
-              inSlope: 1
-              outSlope: 1
+              value: 0.96460176
+              inSlope: 1.1095136
+              outSlope: 1.1095136
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
