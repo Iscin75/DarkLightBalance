@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class OnTriggerDisappear_Appear : MonoBehaviour {
 
+    [SerializeField]
+    GameObject toApply;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("LanternEffect"))
-            gameObject.SetActive(false);
+        if(other.gameObject.CompareTag("LanternEffect"))
+            toApply.gameObject.SetActive(false);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("LanternEffect"))
-            gameObject.SetActive(true);
+            toApply.gameObject.SetActive(true);
     }
 }

@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 54333561478695464}
   - component: {fileID: 82432465486269804}
   - component: {fileID: 64070354047726880}
-  - component: {fileID: 114142881228931304}
   m_Layer: 10
   m_Name: FPSController
   m_TagString: Player
@@ -245,19 +244,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114142881228931304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1092655770783170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a9451937c731d49adbd22832f2bf9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 2
-  smooth: 8
 --- !u!114 &114302735194929744
 MonoBehaviour:
   m_ObjectHideFlags: 1
