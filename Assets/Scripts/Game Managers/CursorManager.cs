@@ -8,10 +8,10 @@ public class CursorManager : MonoBehaviour {
         GameManager.Instance.PauseMenuEvent += EnableCursor;
         GameManager.Instance.ContinueLevelEvent += LockCursor;
         GameManager.Instance.PauseToMainMenuEvent += EnableCursor;
-        GameManager.Instance.PauseRestartLevelEvent += EnableCursor;
+        GameManager.Instance.RestartLevelEvent += LockCursor;
         GameManager.Instance.GameVictoryEvent += EnableCursor;
         GameManager.Instance.GameLooseEvent += EnableCursor;
-        GameManager.Instance.DefeatRestartLevelEvent += EnableCursor;
+ 
     }
 
     public void LockCursor()

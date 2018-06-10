@@ -19,8 +19,7 @@ public class ATH : MonoBehaviour {
         GameManager.Instance.GameVictoryEvent += ToggleATH;
         GameManager.Instance.PauseMenuEvent += ToggleATH;
         GameManager.Instance.ContinueLevelEvent += ToggleATH;
-        GameManager.Instance.PauseRestartLevelEvent += ToggleATH;
-        GameManager.Instance.DefeatRestartLevelEvent += ToggleATH;
+        GameManager.Instance.RestartLevelEvent += ToggleATH;
         GameManager.Instance.GameLooseEvent += ToggleATH;
         GameManager.Instance.ShowHelpMenuEvent += ToggleATH;
         GameManager.Instance.HideHelpMenuEvent += ToggleATH;

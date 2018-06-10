@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
 
     private void Update()
     {
-        if(!GameManager.Instance.isHelpMenuActive && Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isGameWin && GameManager.Instance.isGameStarted&& !GameManager.Instance.isGameLost)
+        if(!GameManager.Instance.isHelpMenuActive && Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isGameWin && GameManager.Instance.isGameStarted)
         {
             if (!isActive)
             {
@@ -38,7 +38,7 @@ public class PauseMenu : MonoBehaviour {
         GameManager.Instance.PauseMenuEvent += ToggleMenuPause;
         GameManager.Instance.ContinueLevelEvent += ToggleMenuPause;
         GameManager.Instance.PauseToMainMenuEvent += ToggleMenuPause;
-        GameManager.Instance.PauseRestartLevelEvent += ToggleMenuPause;
+        GameManager.Instance.RestartLevelEvent += ToggleMenuPause;
     }
 
     void ToggleMenuPause()
