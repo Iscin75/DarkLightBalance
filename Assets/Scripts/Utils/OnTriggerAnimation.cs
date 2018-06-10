@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class OnTriggerAnimation : MonoBehaviour {
 
     [SerializeField]
     GameObject affectedObject;
     private Animator anim;
+
 
     private void Awake()
     {
@@ -13,19 +15,19 @@ public class OnTriggerAnimation : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("LanternEffect"))
         {
             Debug.Log("Collide");
-            anim.SetBool("isOpen",true);
+            anim.SetBool("isOpen", true);
         }
+    
     }
 
-    private void OnTriggerExit(Collider other)
+    private IEnumerator OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Collide");
+            yield return new WaitForSeconds(10);
+            Debug.Log("CollideOut");
             anim.SetBool("isOpen", false);
-        }
+        
     }
 }
