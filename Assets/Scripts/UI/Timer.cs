@@ -32,8 +32,9 @@ public class Timer : MonoBehaviour {
         GameManager.Instance.LevelVictoryEvent += ResetTimer;
         GameManager.Instance.LooseToMainMenuEvent += ResetTimer;
         GameManager.Instance.VictoryToMainMenuEvent += ResetTimer;
-        GameManager.Instance.RestartLevelEvent += ResetTimer;
+        GameManager.Instance.PauseRestartLevelEvent += ResetTimer;
         GameManager.Instance.PauseToMainMenuEvent += ResetTimer;
+        GameManager.Instance.DefeatRestartLevelEvent += ResetTimer;
     }
 
 

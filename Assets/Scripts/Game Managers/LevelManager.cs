@@ -14,11 +14,12 @@ public class LevelManager : MonoBehaviour {
     {
         GameManager.Instance.StartGameEvent += LoadNextLevel;
         GameManager.Instance.PauseToMainMenuEvent += UnloadGame;
-        GameManager.Instance.RestartLevelEvent += RestartLevel;
+        GameManager.Instance.PauseRestartLevelEvent += RestartLevel;
         GameManager.Instance.LevelVictoryEvent += LoadNextLevel;
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
         GameManager.Instance.VictoryToMainMenuEvent += UnloadGame;
         GameManager.Instance.LooseToMainMenuEvent += UnloadGame;
+        GameManager.Instance.DefeatRestartLevelEvent += RestartLevel;
     }
 
     void LoadNextLevel()
@@ -31,6 +32,7 @@ public class LevelManager : MonoBehaviour {
             
             currentLevel++;
             SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
+            
         }
         else
         {
@@ -41,6 +43,7 @@ public class LevelManager : MonoBehaviour {
     void UnloadGame()
     {
         SceneManager.UnloadSceneAsync(currentLevel);
+
         currentLevel = 0;
     }
 
@@ -52,6 +55,7 @@ public class LevelManager : MonoBehaviour {
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        
        if(currentLevel != 0)
         {
             try
