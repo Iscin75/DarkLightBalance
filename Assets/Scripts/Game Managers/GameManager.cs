@@ -1,4 +1,6 @@
-﻿public class GameManager : Singleton<GameManager>
+﻿using UnityEngine;
+
+public class GameManager : Singleton<GameManager>
 {
     #region eventsList
     public delegate void GameEventHandler();
@@ -16,6 +18,8 @@
     public event GameEventHandler PickUpInteractableObjectEvent;
     public event GameEventHandler DropInteractableObjectEvent;
     public event GameEventHandler ToggleLightStateEvent;
+    public event GameEventHandler ShowHelpMenuEvent;
+    public event GameEventHandler HideHelpMenuEvent;
     #endregion
 
     #region GlobalVariables
@@ -24,6 +28,7 @@
     public bool isGamePaused;
     public bool isLightOn = false;
     public bool isOilEmpty = false;
+    public bool isHelpMenuActive = false;
     #endregion
 
     public void CallStartGame()
@@ -127,6 +132,25 @@
     {
         if (ToggleLightStateEvent != null)
             ToggleLightStateEvent();
+    }
+
+    public void CallHelpMenu()
+    {
+        if (ShowHelpMenuEvent != null)
+        {
+            isHelpMenuActive = true;
+            ShowHelpMenuEvent();
+        }
+           
+    }
+
+    public void CallHideHelpMenu()
+    {
+        if (HideHelpMenuEvent != null)
+        {
+            isHelpMenuActive = false;
+            HideHelpMenuEvent();
+        }
     }
 }
 

@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isGameWin && GameManager.Instance.isGameStarted)
+        if(!GameManager.Instance.isHelpMenuActive && Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isGameWin && GameManager.Instance.isGameStarted)
         {
             if (!isActive)
             {

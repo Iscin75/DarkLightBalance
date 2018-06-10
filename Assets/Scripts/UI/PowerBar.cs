@@ -39,7 +39,7 @@ public class PowerBar : MonoBehaviour {
     private void Update()
     {
 
-        if (GameManager.Instance.isLightOn && GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused)
+        if (GameManager.Instance.isLightOn && GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused && !GameManager.Instance.isHelpMenuActive)
         {
             if (m_timeLeft > 0)
             {

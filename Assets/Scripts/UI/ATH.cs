@@ -21,6 +21,8 @@ public class ATH : MonoBehaviour {
         GameManager.Instance.ContinueLevelEvent += ToggleATH;
         GameManager.Instance.RestartLevelEvent += ToggleATH;
         GameManager.Instance.GameLooseEvent += ToggleATH;
+        GameManager.Instance.ShowHelpMenuEvent += ToggleATH;
+        GameManager.Instance.HideHelpMenuEvent += ToggleATH;
 
 
     }
