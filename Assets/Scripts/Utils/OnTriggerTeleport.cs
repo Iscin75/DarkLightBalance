@@ -4,6 +4,12 @@ public class OnTriggerTeleport : MonoBehaviour {
 
     [SerializeField]
     GameObject m_TeleportPosition;
+    GameObject player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +19,8 @@ public class OnTriggerTeleport : MonoBehaviour {
             {
                 GameManager.Instance.CallDropInteractableObject();
             }
-            PlayerManager.SetPlayerTransform(m_TeleportPosition.transform);
+            player.transform.position = m_TeleportPosition.transform.position;
+            player.transform.rotation = m_TeleportPosition.transform.rotation;
 
         }
     }
