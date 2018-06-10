@@ -15,6 +15,7 @@ TagManager:
   - PickableLight
   - DoorActivation
   - MustDisappear
+  - Special_MustDisappear
   layers:
   - Default
   - TransparentFX
