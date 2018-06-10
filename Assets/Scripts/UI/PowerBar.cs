@@ -7,7 +7,7 @@ public class PowerBar : MonoBehaviour {
     [SerializeField]
     Image m_PowerBar;
     [SerializeField]
-    float m_PowerDuration = 10f;
+    float m_PowerDuration = 100f;
     float m_timeLeft;
     bool isPowerActive = false;
     

@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour {
     [SerializeField]
     Image m_Timer;
     [SerializeField]
-    float m_PowerDuration = 30f;
+    float m_PowerDuration = 300f;
     float m_timeLeft;
     bool isActive;
     #endregion
