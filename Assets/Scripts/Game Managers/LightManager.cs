@@ -19,6 +19,7 @@ public class LightManager : MonoBehaviour
     {
         if (playerCamera == null)
             Debug.LogError("Merci d'assigner la caméra au script LightManager de la scene Logic&UI");
+       
     }
 
     private void OnEnable()
@@ -39,6 +40,7 @@ public class LightManager : MonoBehaviour
             currentCarriedObj.transform.position = Vector3.Lerp(currentCarriedObj.transform.position, playerCamera.transform.position + playerCamera.transform.forward * distance, Time.deltaTime * smooth);
             currentCarriedObj.transform.rotation = playerCamera.transform.rotation;
         }
+       
     }
 
     void ToggleLightState()
@@ -143,8 +145,4 @@ public class LightManager : MonoBehaviour
         }
     }
 
-
-
-   
-            
 }

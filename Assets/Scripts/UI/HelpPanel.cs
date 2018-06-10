@@ -34,7 +34,7 @@ public class HelpPanel : MonoBehaviour {
 
     private IEnumerator HideHelpPanel()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(7);
         m_TopPanel.transform.DOLocalMoveY(480, 1);
         m_BotPanel.transform.DOLocalMoveY(-50, 1);
         m_HelpPanel.SetActive(false);
@@ -44,8 +44,8 @@ public class HelpPanel : MonoBehaviour {
     private void ShowHelpPanel()
     {
         m_HelpPanel.SetActive(true);
-        m_TopPanel.transform.DOLocalMoveY(50, 3);
-        m_BotPanel.transform.DOLocalMoveY(50, 3);
+        m_TopPanel.transform.DOLocalMoveY(50, 6);
+        m_BotPanel.transform.DOLocalMoveY(50, 6);
         StartCoroutine(HideHelpPanel());
 
     }
