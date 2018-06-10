@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour {
 
     void Update () {
 
-        if (GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused && !GameManager.Instance.isHelpMenuActive && !GameManager.Instance.isGameLost && !GameManager.Instance.isGameWin)
+        if (GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused && !GameManager.Instance.isHelpMenuActive  && !GameManager.Instance.isGameWin)
         {
             if (m_timeLeft > 0)
             {

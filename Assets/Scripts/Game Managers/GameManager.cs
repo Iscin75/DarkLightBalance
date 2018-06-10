@@ -24,7 +24,6 @@ public class GameManager : Singleton<GameManager>
 
     #region GlobalVariables
     public bool isGameWin = false;
-    public bool isGameLost = false;
     public bool isGameStarted = false;
     public bool isGamePaused;
     public bool isLightOn = false;
@@ -99,7 +98,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (GameLooseEvent != null)
         {
-            isGameLost = true;
+      
 
             GameLooseEvent();
         }
@@ -111,7 +110,7 @@ public class GameManager : Singleton<GameManager>
         if (LooseToMainMenuEvent != null)
         {
             isGameStarted = false;
-            isGameLost = false;
+     
             LooseToMainMenuEvent();
         }
     }
