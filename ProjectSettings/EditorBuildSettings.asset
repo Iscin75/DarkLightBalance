@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Logic&UI.unity
     guid: 85a834421a06c2c4aa2debf3daeaee26
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/efebfd7054f177c4d90e86142d19ef3b
-    guid: efebfd7054f177c4d90e86142d19ef3b
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/Levels/Level1.unity
     guid: fd9401f40c57b924eb44e7e8b362ec36
   - enabled: 1

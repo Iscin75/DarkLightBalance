@@ -4,6 +4,7 @@ public class OnTriggerChangeLanternEffect : MonoBehaviour {
 
     [SerializeField]
     GameObject AreaOfEffect;
+
     [SerializeField]
     Material toApply;
 
