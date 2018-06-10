@@ -5,6 +5,9 @@ public class OnTriggerAnimation : MonoBehaviour {
 
     [SerializeField]
     GameObject affectedObject;
+    [SerializeField]
+    int desactivation_Delay;
+
     private Animator anim;
 
 
@@ -17,7 +20,6 @@ public class OnTriggerAnimation : MonoBehaviour {
     {
         if(other.gameObject.CompareTag("LanternEffect"))
         {
-            Debug.Log("Collide");
             anim.SetBool("isOpen", true);
         }
     
@@ -25,8 +27,7 @@ public class OnTriggerAnimation : MonoBehaviour {
 
     private IEnumerator OnTriggerExit(Collider other)
     {
-            yield return new WaitForSeconds(10);
-            Debug.Log("CollideOut");
+            yield return new WaitForSeconds(desactivation_Delay);
             anim.SetBool("isOpen", false);
         
     }
