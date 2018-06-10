@@ -30,8 +30,8 @@ public class HelpPanel : MonoBehaviour {
     private IEnumerator HideHelpPanel()
     {
         yield return new WaitForSeconds(3);
-        m_TopPanel.transform.DOMoveY(480, 1);
-        m_BotPanel.transform.DOMoveY(-50, 1);
+        m_TopPanel.transform.DOLocalMoveY(480, 1);
+        m_BotPanel.transform.DOLocalMoveY(-50, 1);
         m_HelpPanel.SetActive(false);
         GameManager.Instance.CallHideHelpMenu();
     }
@@ -39,8 +39,8 @@ public class HelpPanel : MonoBehaviour {
     private void ShowHelpPanel()
     {
         m_HelpPanel.SetActive(true);
-        m_TopPanel.transform.DOMoveY(375, 1);
-        m_BotPanel.transform.DOMoveY(50, 1);
+        m_TopPanel.transform.DOLocalMoveY(50, 2);
+        m_BotPanel.transform.DOLocalMoveY(50, 2);
         StartCoroutine(HideHelpPanel());
 
     }
