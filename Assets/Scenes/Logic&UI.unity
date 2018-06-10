@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PowerBar: {fileID: 52944540}
-  m_PowerDuration: 10
+  m_PowerDuration: 300
 --- !u!114 &151566903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Timer: {fileID: 1104516984}
-  m_PowerDuration: 30
+  m_PowerDuration: 600
 --- !u!114 &151566905
 MonoBehaviour:
   m_ObjectHideFlags: 0
