@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class OnTriggerAnimation : MonoBehaviour {
 
+    #region Variables
     [SerializeField]
     GameObject affectedObject;
     private Animator anim;
+    #endregion
 
 
     private void Awake()

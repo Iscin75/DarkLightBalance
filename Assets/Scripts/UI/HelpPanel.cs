@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HelpPanel : MonoBehaviour {
 
+    #region Variables
     [SerializeField]
     GameObject m_HelpPanel;
     [SerializeField]
@@ -14,10 +15,14 @@ public class HelpPanel : MonoBehaviour {
     [SerializeField]
     public static Text topPanel_Text;
     public static Text botPanel_Text;
+    #endregion
 
 
     void Awake()
     {
+        if (m_HelpPanel == null || m_TopPanel == null || m_BotPanel == null)
+            Debug.LogError("Merci d'assigner les objets au script Helpmenu dans l'Inspector");
+   
         topPanel_Text = m_TopPanel.GetComponentInChildren<Text>(true);
         botPanel_Text = m_BotPanel.GetComponentInChildren<Text>(true);
     }
