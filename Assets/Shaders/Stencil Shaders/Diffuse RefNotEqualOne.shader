@@ -14,7 +14,7 @@ SubShader
 
 	Stencil
 	{
-		Ref 1
+		Ref 35
 		Comp notequal
 		Pass keep
 	}
