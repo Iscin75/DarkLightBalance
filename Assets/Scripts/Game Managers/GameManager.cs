@@ -5,8 +5,7 @@ public class GameManager : Singleton<GameManager>
     #region eventsList
     public delegate void GameEventHandler();
     public event GameEventHandler StartGameEvent;
-    public event GameEventHandler PauseRestartLevelEvent;
-    public event GameEventHandler DefeatRestartLevelEvent;
+    public event GameEventHandler RestartLevelEvent;
     public event GameEventHandler PauseMenuEvent;
     public event GameEventHandler ContinueLevelEvent;
     public event GameEventHandler PauseToMainMenuEvent;
@@ -57,8 +56,8 @@ public class GameManager : Singleton<GameManager>
 
     public void CallRestartLevel()
     {
-        if (PauseRestartLevelEvent != null)
-            PauseRestartLevelEvent();
+        if (RestartLevelEvent != null)
+            RestartLevelEvent();
     }
 
     public void CallPauseToMainMenu()
@@ -99,9 +98,12 @@ public class GameManager : Singleton<GameManager>
     public void CallGameLoose()
     {
         if (GameLooseEvent != null)
+        {
             isGameLost = true;
 
-    GameLooseEvent();
+            GameLooseEvent();
+        }
+
     }
 
     public void CallLooseToMainMenu()
@@ -145,7 +147,7 @@ public class GameManager : Singleton<GameManager>
             isHelpMenuActive = true;
             ShowHelpMenuEvent();
         }
-           
+
     }
 
     public void CallHideHelpMenu()
@@ -155,16 +157,6 @@ public class GameManager : Singleton<GameManager>
             isHelpMenuActive = false;
             HideHelpMenuEvent();
         }
-    }
-
-    public void CallLooseRestart()
-    {
-        if (DefeatRestartLevelEvent != null)
-        {
-            isGameLost = false;
-            DefeatRestartLevelEvent();
-        }
-    
     }
 }
 

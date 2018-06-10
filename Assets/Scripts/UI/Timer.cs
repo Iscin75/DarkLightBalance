@@ -32,15 +32,14 @@ public class Timer : MonoBehaviour {
         GameManager.Instance.LevelVictoryEvent += ResetTimer;
         GameManager.Instance.LooseToMainMenuEvent += ResetTimer;
         GameManager.Instance.VictoryToMainMenuEvent += ResetTimer;
-        GameManager.Instance.PauseRestartLevelEvent += ResetTimer;
+        GameManager.Instance.RestartLevelEvent += ResetTimer;
         GameManager.Instance.PauseToMainMenuEvent += ResetTimer;
-        GameManager.Instance.DefeatRestartLevelEvent += ResetTimer;
     }
 
 
     void Update () {
 
-        if (GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused && !GameManager.Instance.isHelpMenuActive)
+        if (GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused && !GameManager.Instance.isHelpMenuActive && !GameManager.Instance.isGameLost && !GameManager.Instance.isGameWin)
         {
             if (m_timeLeft > 0)
             {

@@ -38,7 +38,7 @@ public class PauseMenu : MonoBehaviour {
         GameManager.Instance.PauseMenuEvent += ToggleMenuPause;
         GameManager.Instance.ContinueLevelEvent += ToggleMenuPause;
         GameManager.Instance.PauseToMainMenuEvent += ToggleMenuPause;
-        GameManager.Instance.PauseRestartLevelEvent += ToggleMenuPause;
+        GameManager.Instance.RestartLevelEvent += ToggleMenuPause;
     }
 
     void ToggleMenuPause()

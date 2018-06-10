@@ -14,12 +14,11 @@ public class LevelManager : MonoBehaviour {
     {
         GameManager.Instance.StartGameEvent += LoadNextLevel;
         GameManager.Instance.PauseToMainMenuEvent += UnloadGame;
-        GameManager.Instance.PauseRestartLevelEvent += RestartLevel;
+        GameManager.Instance.RestartLevelEvent += RestartLevel;
         GameManager.Instance.LevelVictoryEvent += LoadNextLevel;
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
         GameManager.Instance.VictoryToMainMenuEvent += UnloadGame;
         GameManager.Instance.LooseToMainMenuEvent += UnloadGame;
-        GameManager.Instance.DefeatRestartLevelEvent += RestartLevel;
     }
 
     void LoadNextLevel()

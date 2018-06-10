@@ -27,14 +27,12 @@ public class PowerBar : MonoBehaviour {
     private void OnEnable()
     {
         GameManager.Instance.StartGameEvent += ResetPowerBar;
-        GameManager.Instance.PauseRestartLevelEvent += ResetPowerBar;
+        GameManager.Instance.RestartLevelEvent += ResetPowerBar;
         GameManager.Instance.GameVictoryEvent += StopPowerBar;
         GameManager.Instance.LevelVictoryEvent += ResetPowerBar;
-        GameManager.Instance.PauseRestartLevelEvent += StopPowerBar;
+        GameManager.Instance.RestartLevelEvent += StopPowerBar;
         GameManager.Instance.PauseMenuEvent += StopPowerBar;
         GameManager.Instance.GameLooseEvent += StopPowerBar;
-        GameManager.Instance.LevelVictoryEvent += StopPowerBar;
-        GameManager.Instance.DefeatRestartLevelEvent += ResetPowerBar;
 
     }
 

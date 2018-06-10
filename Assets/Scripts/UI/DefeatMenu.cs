@@ -17,7 +17,6 @@ public class DefeatMenu : MonoBehaviour {
     {
         GameManager.Instance.GameLooseEvent += ToggleLoosePanel;
         GameManager.Instance.LooseToMainMenuEvent += ToggleLoosePanel;
-        GameManager.Instance.DefeatRestartLevelEvent += ToggleLoosePanel;
     }
 
     void ToggleLoosePanel()
@@ -30,10 +29,7 @@ public class DefeatMenu : MonoBehaviour {
         GameManager.Instance.CallLooseToMainMenu();
     }
 
-    public void OnClickRestart()
-    {
-        GameManager.Instance.CallLooseRestart();
-    }
+
 
 
 }
