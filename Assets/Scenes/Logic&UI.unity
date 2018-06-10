@@ -332,7 +332,6 @@ GameObject:
   - component: {fileID: 260711931}
   - component: {fileID: 260711930}
   - component: {fileID: 260711929}
-  - component: {fileID: 260711928}
   m_Layer: 10
   m_Name: FPSController
   m_TagString: Player
@@ -340,18 +339,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &260711928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114142881228931304, guid: c1895a9e2ca74d64a8349f459a457dea,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 260711927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &260711929
 MeshCollider:
   m_ObjectHideFlags: 0
