@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PowerBar: {fileID: 52944540}
-  m_PowerDuration: 300
+  m_PowerDuration: 30
 --- !u!114 &151566903
 MonoBehaviour:
   m_ObjectHideFlags: 0
